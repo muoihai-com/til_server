@@ -21,14 +21,17 @@
     
       <div class="item">
         <h2 class="title">
-          <a href="/items/test-1.html">test 1</a>
+          <a href="/items/Xem-các-thư-mục-được-autoload-trong-rails.html">Xem các thư mục được autoload trong rails</a>
         </h2>
         <div class="content">
-          <p>1111</p>
+          <p>Gọi hàm sau</p>
 
-<pre><code class="rb">def test
-  puts &quot;hello&quot;
-end
+<pre><code class="rb">ActiveSupport::Dependencies.autoload_paths
+</code></pre>
+
+<p>Thêm thư mục autoload, trong file: <code>config/application.rb</code></p>
+
+<pre><code class="rb">config.autoload_paths &lt;&lt; Rails.root.join(&quot;app/builders&quot;)
 </code></pre>
 
         </div>
