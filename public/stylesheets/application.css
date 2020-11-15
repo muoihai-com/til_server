@@ -1,68 +1,80 @@
-/* line 1, /Users/kieu.quoc.hung/Desktop/til_server/app/assets/stylesheets/scaffolds.scss */
+/* line 1, /home/hungk/Desktop/til_server/app/assets/stylesheets/admin.scss */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* line 7, /home/hungk/Desktop/til_server/app/assets/stylesheets/admin.scss */
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+/* line 12, /home/hungk/Desktop/til_server/app/assets/stylesheets/admin.scss */
 body {
+  font-size: 14px;
   background-color: #fff;
   color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
+  font-family: 'Roboto', verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+  padding: 2em;
 }
 
-/* line 9, /Users/kieu.quoc.hung/Desktop/til_server/app/assets/stylesheets/scaffolds.scss */
+/* line 23, /home/hungk/Desktop/til_server/app/assets/stylesheets/admin.scss */
 p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
+  font-family: 'Roboto', verdana, arial, helvetica, sans-serif;
   line-height: 18px;
 }
 
-/* line 15, /Users/kieu.quoc.hung/Desktop/til_server/app/assets/stylesheets/scaffolds.scss */
+/* line 28, /home/hungk/Desktop/til_server/app/assets/stylesheets/admin.scss */
 pre {
   background-color: #eee;
   font-size: 13px;
-  margin: 10px 0;
+  margin: 1em 0;
 }
 
-/* line 21, /Users/kieu.quoc.hung/Desktop/til_server/app/assets/stylesheets/scaffolds.scss */
+/* line 34, /home/hungk/Desktop/til_server/app/assets/stylesheets/admin.scss */
+code {
+  background: #def;
+  padding: 2px;
+}
+
+/* line 39, /home/hungk/Desktop/til_server/app/assets/stylesheets/admin.scss */
 a {
+  text-decoration: none;
   color: #000;
 }
-/* line 24, /Users/kieu.quoc.hung/Desktop/til_server/app/assets/stylesheets/scaffolds.scss */
-a:visited {
-  color: #666;
-}
-/* line 28, /Users/kieu.quoc.hung/Desktop/til_server/app/assets/stylesheets/scaffolds.scss */
-a:hover {
-  color: #fff;
-  background-color: #000;
-}
 
-/* line 34, /Users/kieu.quoc.hung/Desktop/til_server/app/assets/stylesheets/scaffolds.scss */
+/* line 44, /home/hungk/Desktop/til_server/app/assets/stylesheets/admin.scss */
 th {
   padding-bottom: 5px;
 }
 
-/* line 38, /Users/kieu.quoc.hung/Desktop/til_server/app/assets/stylesheets/scaffolds.scss */
+/* line 48, /home/hungk/Desktop/til_server/app/assets/stylesheets/admin.scss */
 td {
   padding: 0 5px 7px;
 }
 
-/* line 43, /Users/kieu.quoc.hung/Desktop/til_server/app/assets/stylesheets/scaffolds.scss */
+/* line 53, /home/hungk/Desktop/til_server/app/assets/stylesheets/admin.scss */
 div.field, div.actions {
   margin-bottom: 10px;
 }
 
-/* line 48, /Users/kieu.quoc.hung/Desktop/til_server/app/assets/stylesheets/scaffolds.scss */
+/* line 58, /home/hungk/Desktop/til_server/app/assets/stylesheets/admin.scss */
 #notice {
   color: green;
 }
 
-/* line 52, /Users/kieu.quoc.hung/Desktop/til_server/app/assets/stylesheets/scaffolds.scss */
+/* line 62, /home/hungk/Desktop/til_server/app/assets/stylesheets/admin.scss */
 .field_with_errors {
   padding: 2px;
   background-color: red;
   display: table;
 }
 
-/* line 58, /Users/kieu.quoc.hung/Desktop/til_server/app/assets/stylesheets/scaffolds.scss */
+/* line 68, /home/hungk/Desktop/til_server/app/assets/stylesheets/admin.scss */
 #error_explanation {
   width: 450px;
   border: 2px solid red;
@@ -70,7 +82,7 @@ div.field, div.actions {
   margin-bottom: 20px;
   background-color: #f0f0f0;
 }
-/* line 65, /Users/kieu.quoc.hung/Desktop/til_server/app/assets/stylesheets/scaffolds.scss */
+/* line 75, /home/hungk/Desktop/til_server/app/assets/stylesheets/admin.scss */
 #error_explanation h2 {
   text-align: left;
   font-weight: bold;
@@ -80,22 +92,28 @@ div.field, div.actions {
   background-color: #c00;
   color: #fff;
 }
-/* line 75, /Users/kieu.quoc.hung/Desktop/til_server/app/assets/stylesheets/scaffolds.scss */
+/* line 85, /home/hungk/Desktop/til_server/app/assets/stylesheets/admin.scss */
 #error_explanation ul li {
   font-size: 12px;
   list-style: square;
 }
 
-/* line 81, /Users/kieu.quoc.hung/Desktop/til_server/app/assets/stylesheets/scaffolds.scss */
+/* line 91, /home/hungk/Desktop/til_server/app/assets/stylesheets/admin.scss */
 label {
   display: block;
 }
 
-/* line 85, /Users/kieu.quoc.hung/Desktop/til_server/app/assets/stylesheets/scaffolds.scss */
+/* line 95, /home/hungk/Desktop/til_server/app/assets/stylesheets/admin.scss */
 .scaffold textarea {
   width: 100%;
   min-height: 200px;
   resize: vertical;
+  padding: 5px;
+}
+
+/* line 102, /home/hungk/Desktop/til_server/app/assets/stylesheets/admin.scss */
+input[type=text] {
+  width: 100%;
   padding: 5px;
 }
 /*
@@ -113,55 +131,171 @@ label {
 
 
  */
-/* line 18, /Users/kieu.quoc.hung/Desktop/til_server/app/assets/stylesheets/application.scss */
+/* line 18, /home/hungk/Desktop/til_server/app/assets/stylesheets/application.scss */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* line 24, /Users/kieu.quoc.hung/Desktop/til_server/app/assets/stylesheets/application.scss */
+/* line 24, /home/hungk/Desktop/til_server/app/assets/stylesheets/application.scss */
 html, body {
   width: 100%;
   height: 100%;
 }
 
-/* line 29, /Users/kieu.quoc.hung/Desktop/til_server/app/assets/stylesheets/application.scss */
+/* line 29, /home/hungk/Desktop/til_server/app/assets/stylesheets/application.scss */
 body {
+  font-size: 14px;
   background-color: aliceblue;
 }
 
-/* line 33, /Users/kieu.quoc.hung/Desktop/til_server/app/assets/stylesheets/application.scss */
+/* line 34, /home/hungk/Desktop/til_server/app/assets/stylesheets/application.scss */
 .scaffold {
   padding: 33px;
 }
 
-/* line 37, /Users/kieu.quoc.hung/Desktop/til_server/app/assets/stylesheets/application.scss */
+/* line 38, /home/hungk/Desktop/til_server/app/assets/stylesheets/application.scss */
 h1.title {
-  padding: 33px;
+  padding: 33px 0;
 }
-/* line 40, /Users/kieu.quoc.hung/Desktop/til_server/app/assets/stylesheets/application.scss */
+/* line 41, /home/hungk/Desktop/til_server/app/assets/stylesheets/application.scss */
 h1.title a {
   text-decoration: none;
   color: #333;
 }
-/* line 45, /Users/kieu.quoc.hung/Desktop/til_server/app/assets/stylesheets/application.scss */
+/* line 46, /home/hungk/Desktop/til_server/app/assets/stylesheets/application.scss */
 h1.title a:hover {
   background-color: initial;
 }
 
-/* line 50, /Users/kieu.quoc.hung/Desktop/til_server/app/assets/stylesheets/application.scss */
+/* line 51, /home/hungk/Desktop/til_server/app/assets/stylesheets/application.scss */
 .container {
-  padding: 0 33px;
+  margin: auto;
+  width: 100%;
+  max-width: 960px;
 }
 
-/* line 54, /Users/kieu.quoc.hung/Desktop/til_server/app/assets/stylesheets/application.scss */
+/* line 57, /home/hungk/Desktop/til_server/app/assets/stylesheets/application.scss */
 .item {
-  padding: 33px;
+  padding: 16px 33px;
   background: white;
+  margin-bottom: 2em;
+}
+/* line 63, /home/hungk/Desktop/til_server/app/assets/stylesheets/application.scss */
+.item pre code {
+  padding: 1.5em;
+}
+/* line 68, /home/hungk/Desktop/til_server/app/assets/stylesheets/application.scss */
+.item .footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-top: 0.5em;
+}
+/* line 74, /home/hungk/Desktop/til_server/app/assets/stylesheets/application.scss */
+.item .footer .created-at {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.33);
 }
 
-/* line 59, /Users/kieu.quoc.hung/Desktop/til_server/app/assets/stylesheets/application.scss */
+/* line 81, /home/hungk/Desktop/til_server/app/assets/stylesheets/application.scss */
 .item .title {
-  padding: 16px 0;
+  padding: 20px 0 40px 0;
+}
+
+/* line 85, /home/hungk/Desktop/til_server/app/assets/stylesheets/application.scss */
+body {
+  color: #333;
+  font-family: 'Roboto', verdana, arial, helvetica, sans-serif;
+  line-height: 18px;
+}
+
+/* line 91, /home/hungk/Desktop/til_server/app/assets/stylesheets/application.scss */
+p, ol, ul, td {
+  font-family: 'Roboto', verdana, arial, helvetica, sans-serif;
+  line-height: 18px;
+}
+
+/* line 96, /home/hungk/Desktop/til_server/app/assets/stylesheets/application.scss */
+pre {
+  background-color: #eee;
+  font-size: 13px;
+  margin: 1em 0;
+}
+
+/* line 102, /home/hungk/Desktop/til_server/app/assets/stylesheets/application.scss */
+code {
+  background: #def;
+  padding: 2px;
+}
+
+/* line 107, /home/hungk/Desktop/til_server/app/assets/stylesheets/application.scss */
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+/* line 112, /home/hungk/Desktop/til_server/app/assets/stylesheets/application.scss */
+th {
+  padding-bottom: 5px;
+}
+
+/* line 116, /home/hungk/Desktop/til_server/app/assets/stylesheets/application.scss */
+td {
+  padding: 0 5px 7px;
+}
+
+/* line 121, /home/hungk/Desktop/til_server/app/assets/stylesheets/application.scss */
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+/* line 126, /home/hungk/Desktop/til_server/app/assets/stylesheets/application.scss */
+#notice {
+  color: green;
+}
+
+/* line 130, /home/hungk/Desktop/til_server/app/assets/stylesheets/application.scss */
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+/* line 136, /home/hungk/Desktop/til_server/app/assets/stylesheets/application.scss */
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px 7px 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+/* line 143, /home/hungk/Desktop/til_server/app/assets/stylesheets/application.scss */
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px -7px 0;
+  background-color: #c00;
+  color: #fff;
+}
+/* line 153, /home/hungk/Desktop/til_server/app/assets/stylesheets/application.scss */
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+/* line 159, /home/hungk/Desktop/til_server/app/assets/stylesheets/application.scss */
+label {
+  display: block;
+}
+
+/* line 163, /home/hungk/Desktop/til_server/app/assets/stylesheets/application.scss */
+.scaffold textarea {
+  width: 100%;
+  min-height: 200px;
+  resize: vertical;
+  padding: 5px;
 }

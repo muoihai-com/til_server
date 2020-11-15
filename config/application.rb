@@ -17,5 +17,7 @@ module TilServer
     # the framework and any gems in your application.
 
     config.autoload_paths << Rails.root.join('app/redcarpet')
+    config.time_zone = "Hanoi"
+    config.assets.precompile += %w( admin.js admin.css )
   end
 end

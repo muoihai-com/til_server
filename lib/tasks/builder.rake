@@ -3,7 +3,10 @@ namespace :builder do
   task run: :environment do
     ItemBuilder.new.build_index
     ItemBuilder.new.build_show
+  end
 
+  desc "push to git"
+  task publish: :environment do
     system "cd public; git add .; git commit -m '#{Time.now.to_s}'; git push origin master;"
   end
 
@@ -12,11 +15,11 @@ namespace :builder do
     FileUtils.rm_rf(Rails.root.join("public", "assets"))
     Rake::Task['assets:precompile'].invoke
 
-    js_file_path = Dir.glob("public/assets/*.js").first
+    js_file_path = Dir.glob("public/assets/application-*.js").first
     FileUtils.mkdir_p(Rails.root.join("public", "javascripts"))
     FileUtils.mv(Rails.root.join(js_file_path), Rails.root.join("public", "javascripts", "application.js"))
 
-    css_file_path = Dir.glob("public/assets/*.css").first
+    css_file_path = Dir.glob("public/assets/application-*.css").first
     FileUtils.mkdir_p(Rails.root.join("public", "stylesheets"))
     FileUtils.mv(Rails.root.join(css_file_path), Rails.root.join("public", "stylesheets", "application.css"))
     FileUtils.rm_rf(Rails.root.join("public", "assets"))

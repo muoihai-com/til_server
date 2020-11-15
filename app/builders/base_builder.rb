@@ -1,6 +1,7 @@
 class BaseBuilder
   include ApplicationHelper
   include ActionView::Helpers::AssetTagHelper
+  include ActionView::Helpers::TranslationHelper
 
   attr_accessor :locals
 
@@ -28,7 +29,7 @@ class BaseBuilder
   end
 
   def get_view_path path
-    Rails.root.join("app", "views", "builders", path)
+    Rails.root.join("app", "views", path)
   end
 
   def public_path path
