@@ -1,0 +1,19 @@
+<div class="container">
+  <h1 class="title"><a href="/">Today I Learned</a></h1>
+  <div class="tag">
+    <h2 class="name">
+      <%= @tag.name %>
+    </h2>
+    <% if @tag.items.present? %>
+      <div class="tag_items">
+        <% @tag.items.each do |item| %>
+          <div class="tag_item">
+            <a href="/<%= item.output %>">
+              <%= item.title %>
+            </a>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

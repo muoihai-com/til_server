@@ -3,6 +3,7 @@ namespace :builder do
   task run: :environment do
     ItemBuilder.new.build_index
     ItemBuilder.new.build_show
+    TagBuilder.new.build_show
   end
 
   desc "push to git"

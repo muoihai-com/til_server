@@ -72,6 +72,6 @@ class Admin::ItemsController < Admin::BaseController
 
     # Only allow a list of trusted parameters through.
     def item_params
-      params.require(:item).permit(:title, :content)
+      params.require(:item).permit(:title, :content, :attr_tags)
     end
 end

@@ -12,5 +12,11 @@ Rails.application.routes.draw do
         get :builder_index
       end
     end
+
+    resources :tags do
+      collection do
+        get :builder_index
+      end
+    end
   end
 end

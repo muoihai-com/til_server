@@ -64,6 +64,22 @@ h1.title {
     }
   }
 
+  .tags {
+    margin-top: 10px;
+    margin-bottom: 30px;
+
+    .tag {
+      margin-right: 5px;
+      border-radius: 5px;
+      padding: 5px;
+      background-color: aqua;
+
+      &:hover {
+        background-color: #bbf;
+      }
+    }
+  }
+
   .footer {
     display: flex;
     align-items: center;
@@ -78,7 +94,23 @@ h1.title {
 }
 
 .item .title {
-  padding: 20px 0 40px 0;
+  padding: 20px 0 5px 0;
+}
+
+.tag {
+  padding: 16px 33px;
+  background: white;
+  margin-bottom: 2em;
+
+  .name {
+    margin: 15px 0 20px 0;
+  }
+
+  .tag_items {
+    .tag_item {
+      margin-bottom: 5px;
+    }
+  }
 }
 
 body {
@@ -99,6 +131,7 @@ pre {
 }
 
 code {
+  word-break: break-all;
   background: #def;
   padding: 2px;
 }

@@ -1,16 +1,31 @@
 class Item < ApplicationRecord
-  
+  attr_accessor :attr_tags
+
+  has_many :item_tags, dependent: :destroy
+  has_many :tags, through: :item_tags
+
   enum status: { new: 0, built: 1 }, _suffix: true
 
-  before_update :set_new_status
-  after_destroy :remove_output_file
+  default_scope { order updated_at: :desc }
 
-  def set_new_status
-    status = :new
+  after_save :create_tag
+  before_update :set_new_status
+
+  def create_tag
+    return if attr_tags.blank?
+
+    item_tags.destroy_all
+    existing_tags = Tag.all.to_a
+    attr_tags.downcase.split(" ").each do |tag_name|
+      tag = existing_tags.find{ |x| x.name.downcase == tag_name }
+      tags << tag if tag.present?
+
+      next
+    end
   end
 
-  def remove_output_file
-    remove_file output
+  def set_new_status
+    self.status = :new
   end
 
   def output
@@ -18,9 +33,6 @@ class Item < ApplicationRecord
   end
 
   def slug
-    title.strip.tr(
-      "ÁÀẢẠÃĂẮẰẲẶẴÂẤẦẨẬẪĐÉÈẺẸẼÊẾỀỂỆỄÍÌỈỊĨÓÒỎỌÕÔỐỒỔỘỖƠỚỜỞỢỠÚÙỦỤŨƯỨỪỬỰỮÝỲỶỴỸáàảạãăắằẳặẵâấầẩậẫđéèẻẹẽêếềểệễíìỉịĩóòỏọõôốồổộỗơớờởợỡúùủụũưứừửựữýỳỷỵỹ",
-      "AAAAAAAAAAAAAAAAADEEEEEEEEEEEIIIIIOOOOOOOOOOOOOOOOOUUUUUUUUUUUYYYYYaaaaaaaaaaaaaaaaadeeeeeeeeeeeiiiiiooooooooooooooooouuuuuuuuuuuyyyyy"
-    ).parameterize
+    create_slug title
   end
 end

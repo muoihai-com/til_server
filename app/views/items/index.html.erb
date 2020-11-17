@@ -6,6 +6,15 @@
         <h2 class="title">
           <a href="<%= item.output %>"><%= item.title %></a>
         </h2>
+        <% if item.tags.any? %>
+          <div class="tags">
+            <% item.tags.each do |tag| %>
+              <a href="/<%= tag.output %>" class="tag">
+                <%= tag.name %>
+              </a>
+            <% end %>
+          </div>
+        <% end %>
         <div class="content">
           <%= markdown(item.content) %>
         </div>

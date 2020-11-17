@@ -2,6 +2,9 @@
 
 <h1>Tags</h1>
 
+<p><a href="<%= builder_index_admin_tags_path %>">Builder</a></p>
+<p><a href="<%= admin_items_path %>">Items</a></p>
+
 <table>
   <thead>
     <tr>
@@ -14,9 +17,8 @@
     <% @tags.each do |tag| %>
       <tr>
         <td><%= tag.name %></td>
-        <td><%= link_to 'Show', tag %></td>
-        <td><%= link_to 'Edit', edit_tag_path(tag) %></td>
-        <td><%= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', [:admin, tag] %></td>
+        <td><%= link_to 'Edit', edit_admin_tag_path(tag) %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Tag', new_tag_path %>
+<%= link_to 'New Tag', new_admin_tag_path %>

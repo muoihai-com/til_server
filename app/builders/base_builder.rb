@@ -1,18 +1,28 @@
 class BaseBuilder
   include ApplicationHelper
-  include ActionView::Helpers::AssetTagHelper
   include ActionView::Helpers::TranslationHelper
 
-  attr_accessor :locals
+  def stylesheet_link_tag file, *args
+    "<link rel='stylesheet' media='all' href='/stylesheets/#{file}.css' />"
+  end
+
+  def javascript_include_tag file, *args
+    "<script src='/javascripts/#{file}.js'></script>"
+  end
 
   def build path:, locals: {}, out: nil
-    @locals = locals if locals.is_a? Hash
+    if locals.is_a? Hash
+      locals.each do |k, v|
+        singleton_class.class_eval { attr_accessor k }
+        send("#{k}=", v)
+      end
+    end
 
     erb = read_erb_file(path)
     write_erb_file(out || path, erb)
   end
 
-  def layout path = "layouts/application.html.erb", &block
+  def layout(path = "layouts/application.html.erb", &block)
     erb = read_erb_file(path)
 
     erb.result(binding, &block)
@@ -36,11 +46,5 @@ class BaseBuilder
     dirname, _, filename = path.rpartition("/")
     FileUtils.mkdir_p(Rails.root.join("public", dirname))
     Rails.root.join("public", [dirname, filename.sub(".erb", "")].reject(&:blank?).join("/"))
-  end
-
-  def method_missing method, *args, &block
-    return @locals[method] if @locals.has_key?(method)
-
-    super
   end
 end
