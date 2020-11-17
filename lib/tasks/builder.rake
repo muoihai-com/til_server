@@ -4,11 +4,13 @@ namespace :builder do
     ItemBuilder.new.build_index
     ItemBuilder.new.build_show
     TagBuilder.new.build_show
+
+    system "git add .; git commit -m '#{Time.now.to_s}'; git push origin master;"
   end
 
   desc "push to git"
   task publish: :environment do
-    system "cd public; git add .; git commit -m '#{Time.now.to_s}'; git push origin master;"
+    system "cd public; git pull origin master; git add .; git commit -m '#{Time.now.to_s}'; git push origin master;"
   end
 
   desc "generate and push"
