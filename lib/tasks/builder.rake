@@ -5,16 +5,17 @@ namespace :builder do
     ItemBuilder.new.build_show
     TagBuilder.new.build_show
   end
-
+  
   desc "push to git"
   task publish: :environment do
     system "cd public; git pull origin master; git add .; git commit -m '#{Time.now.to_s}'; git push origin master;"
   end
-
+  
   desc "generate and push"
   task production: :environment do
     Rake::Task['builder:run'].invoke
     Rake::Task['builder:publish'].invoke
+    system "git add .; git commit -m '#{Time.now.to_s}'; git push origin master;"
   end
 
   desc "Compile css, js"
