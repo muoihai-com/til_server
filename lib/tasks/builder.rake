@@ -11,6 +11,12 @@ namespace :builder do
     system "cd public; git add .; git commit -m '#{Time.now.to_s}'; git push origin master;"
   end
 
+  desc "generate and push"
+  task production: :environment do
+    Rake::Task['builder:run'].invoke
+    Rake::Task['builder:publish'].invoke
+  end
+
   desc "Compile css, js"
   task precompile: :environment do
     FileUtils.rm_rf(Rails.root.join("public", "assets"))
