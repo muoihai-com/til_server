@@ -10,7 +10,6 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
  *= require_self
  */
 
@@ -116,18 +115,18 @@ h1.title {
 body {
   color: #333;
   font-family: 'Roboto', verdana, arial, helvetica, sans-serif;
-  line-height: 18px;
+  line-height: 24px;
 }
 
 p, ol, ul, td {
   font-family: 'Roboto', verdana, arial, helvetica, sans-serif;
-  line-height: 18px;
+  line-height: 24px;
 }
 
 pre {
   background-color: #eee;
   font-size: 13px;
-  margin: 1em 0;
+  margin: 0.5em 0;
 }
 
 code {

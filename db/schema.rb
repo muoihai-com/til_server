@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_15_015918) do
+ActiveRecord::Schema.define(version: 2020_11_17_055607) do
+
+  create_table "builder_files", force: :cascade do |t|
+    t.string "output"
+    t.string "fileable_type"
+    t.integer "fileable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["fileable_type", "fileable_id"], name: "index_builder_files_on_fileable_type_and_fileable_id"
+    t.index ["output"], name: "index_builder_files_on_output"
+  end
 
   create_table "groups", force: :cascade do |t|
     t.string "name"

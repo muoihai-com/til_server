@@ -3,6 +3,7 @@ class Item < ApplicationRecord
 
   has_many :item_tags, dependent: :destroy
   has_many :tags, through: :item_tags
+  has_one :builder_file, as: :fileable
 
   enum status: { new: 0, built: 1 }, _suffix: true
 
