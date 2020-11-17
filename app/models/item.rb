@@ -7,7 +7,7 @@ class Item < ApplicationRecord
 
   enum status: { new: 0, built: 1 }, _suffix: true
 
-  default_scope { order updated_at: :desc }
+  default_scope { order updated_at: :asc }
 
   after_save :create_tag
   before_update :set_new_status
