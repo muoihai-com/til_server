@@ -5,12 +5,12 @@ namespace :builder do
     ItemBuilder.new.build_show
     TagBuilder.new.build_show
   end
-  
+
   desc "push to git"
   task publish: :environment do
     system "cd public; git pull origin master; git add .; git commit -m '#{Time.now.to_s}'; git push origin master;"
   end
-  
+
   desc "generate and push"
   task production: :environment do
     Rake::Task['builder:precompile'].invoke
