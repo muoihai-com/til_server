@@ -13,6 +13,7 @@ namespace :builder do
   
   desc "generate and push"
   task production: :environment do
+    Rake::Task['builder:precompile'].invoke
     Rake::Task['builder:run'].invoke
     Rake::Task['builder:publish'].invoke
     system "git add .; git commit -m '#{Time.now.to_s}'; git push origin master;"
