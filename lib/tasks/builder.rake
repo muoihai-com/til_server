@@ -15,6 +15,7 @@ namespace :builder do
   task production: :environment do
     Rake::Task['builder:precompile'].invoke
     Rake::Task['builder:run'].invoke
+    Rake::Task['builder:sitemap'].invoke
     Rake::Task['builder:publish'].invoke
     system "git add .; git commit -m '#{Time.now.to_s}'; git push origin master;"
   end
@@ -34,5 +35,11 @@ namespace :builder do
     FileUtils.mkdir_p(Rails.root.join("public", "stylesheets"))
     FileUtils.mv(Rails.root.join(css_file_path), Rails.root.join("public", "stylesheets", "application.css"))
     FileUtils.rm_rf(Rails.root.join("public", "assets"))
+  end
+
+  desc "sitemap"
+  task sitemap: :environment do
+    txt = BuilderFile.pluck(:output).map{|x| "https://muoihai.com/#{x}" }
+    File.write(Rails.root.join("public", "sitemap.txt"), txt.join("\n"))
   end
 end
